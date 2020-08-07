@@ -1,1 +1,1 @@
-web: gunicorn Newser.wsgi
+web: gunicorn library.wsgi
