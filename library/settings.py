@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 SECRET_KEY = '1_vdjs5e)=gn8ndwe(8p-^m1qj-z$p4ln@u+39gpi3m=1dd9is'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*','librarysm2020.herokuapp.com']
 
