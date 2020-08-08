@@ -7,7 +7,7 @@ STATUS_CHOICES = (
 )
 
 class Author (models.Model):
-    id=models.IntegerField(primary_key=True,null=False)
+    id=models.AutoField(primary_key=True,null=False)
     name=models.CharField(max_length=255)
   
     def __str__(self):
@@ -16,7 +16,7 @@ class Author (models.Model):
 
 
 class Book (models.Model):
-    id=models.IntegerField(primary_key=True,null=False)
+    id=models.AutoField(primary_key=True,null=False)
     name=models.CharField(max_length=255)
     author=models.ForeignKey(Author,db_column="author_id",on_delete=models.CASCADE)
     status=models.IntegerField(choices=STATUS_CHOICES,default=1)
