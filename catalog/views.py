@@ -24,12 +24,10 @@ def index(request):
             taken = ''
             returned = ''
         else:
-            if not book['taken_at'] or not book['returned_at']:
+            if not book['taken_at']:
                 taken = ''
-                returned = ''
             else:
                 taken = book['taken_at'].strftime("%d %B, %Y %H:%M:%S")
-                returned = book['returned_at'].strftime("%d %B, %Y %H:%M:%S")
 
         book_list.append({
             'id':book['id'],
@@ -38,7 +36,6 @@ def index(request):
             'status':status,
             'takenBy':book['takenBy'],
             'taken':taken,
-            'returned':returned
         })
 
     context = {
