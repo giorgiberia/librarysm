@@ -8,7 +8,6 @@ class BookAdmin(admin.ModelAdmin):
     ordering = ('name',)
     search_fields = ('name', 'takenBy')
 
-
 admin.site.register(models.Book,BookAdmin)
 
 class AuthorAdmin(admin.ModelAdmin):
