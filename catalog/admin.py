@@ -3,7 +3,7 @@ from catalog import models
 
 # Register your models here.
 class BookAdmin(admin.ModelAdmin):
-    list_display = ('name', 'author','status','takenBy')
+    list_display = ('name', 'author','status','takenBy','taken_at','returned_at')
     ordering = ('name',)
     search_fields = ('name', 'takenBy')
 
