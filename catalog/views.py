@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import Book,Author
 
 # Create your views here.
 def index(request):
@@ -7,17 +8,39 @@ def index(request):
     # Generate counts of some of the main objects
     num_books = Book.objects.all().count()
     
-    # Available books (status = 'a')
-    num_instances_available = BookInstance.objects.filter(status__exact='a').count()
-    
-    # The 'all()' is implied by default.    
     num_authors = Author.objects.count()
     
+    books=Book.objects.all().values()
+
+    book_list=[]
+    for book in books:
+        print(book)
+        if book['status'] == 0:
+            status = 'in library'
+        else:
+            status = 'taken'
+        
+        if book['status'] == 0:
+            taken = ''
+            returned = ''
+        else:
+            taken = book['taken_at'].strftime("%d %B, %Y %H:%M:%S")
+            returned = book['returned_at'].strftime("%d %B, %Y %H:%M:%S")
+
+        book_list.append({
+            'id':book['id'],
+            'name':book['name'],
+            'author':Author.objects.filter(id=book['author_id']).values('name')[0]['name'],
+            'status':status,
+            'takenBy':book['takenBy'],
+            'taken':taken,
+            'returned':returned
+        })
+
     context = {
         'num_books': num_books,
-        'num_instances': num_instances,
-        'num_instances_available': num_instances_available,
         'num_authors': num_authors,
+        'book_list':book_list
     }
 
     # Render the HTML template index.html with the data in the context variable
