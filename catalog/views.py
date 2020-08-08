@@ -20,7 +20,7 @@ def index(request):
         else:
             status = 'taken'
         
-        if book['status'] == 0:
+        if book['status'] == 1:
             taken = ''
             returned = ''
         else:
