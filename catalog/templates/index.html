@@ -25,14 +25,16 @@
         </ul>
          <h1>Book List</h1>
          {% if book_list %}
-          <table class="table table-bordered">
+          <table class="table table-bordered table-striped table-hover">
             <th>name</th>
             <th>author</th>
             <th>status</th>
             <th>taken by</th>
             <th>taken (date time)</th>
             <th>returned (date time)</th>
-           {% for book in book_list %}
+            <tbody>
+            {% for book in book_list %}
+
            <tr>
              <td>{{ book.name }}</td>
              <td>{{ book.author }}</td>
@@ -42,6 +44,7 @@
             <td>{{ book.returned }}</td>
             </tr>
            {% endfor %}
+           </tbody>
           </table>
            {% else %}
          <p>There are no books in the library.</p>
