@@ -15,7 +15,7 @@ def index(request):
     book_list=[]
     for book in books:
         print(book)
-        if book['status'] == 0:
+        if book['status'] == 1:
             status = 'in library'
         else:
             status = 'taken'
