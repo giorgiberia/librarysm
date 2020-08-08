@@ -22,7 +22,6 @@ class Book (models.Model):
     status=models.IntegerField(choices=STATUS_CHOICES,default=1)
     takenBy=models.CharField(max_length=255)
     taken_at=models.DateTimeField(null=True,blank=True)
-    returned_at=models.DateTimeField(null=True,blank=True)
 
     def __str__(self):
         return self.name

@@ -31,7 +31,6 @@
             <th>status</th>
             <th>taken by</th>
             <th>taken (date time)</th>
-            <th>returned (date time)</th>
             <tbody>
             {% for book in book_list %}
 
@@ -41,7 +40,6 @@
              <td>{{ book.status }}</td>
              <td>{{ book.takenBy }}</td>
               <td>{{ book.taken }}</td>
-            <td>{{ book.returned }}</td>
             </tr>
            {% endfor %}
            </tbody>
