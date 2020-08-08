@@ -16,8 +16,8 @@ class Book (models.Model):
     author=models.OneToOneField(Author,db_column="author_id",on_delete=models.CASCADE)
     status=models.IntegerField()
     takenBy=models.CharField(max_length=255)
-    taken_at=models.DateTimeField()
-    returned_at=models.DateTimeField()
+    taken_at=models.DateTimeField(null=True)
+    returned_at=models.DateTimeField(null=True)
 
     def __str__(self):
         return self.name
