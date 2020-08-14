@@ -6,9 +6,9 @@ def index(request):
     """View function for home page of site."""
 
     # Generate counts of some of the main objects
-    num_books = Book.objects.all().count()
+    num_books = Book.objects.values().distinct('name').count()
     
-    num_authors = Author.objects.count()
+    num_authors = Author.objects.values().distinct('name').count()
     
     books=Book.objects.all().values()
 
